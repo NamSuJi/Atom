@@ -5,36 +5,41 @@
     <meta charset="utf-8">
     <title>Web1 - JavaScipt</title>
     <script type="text/javascript">
+      function linksetColor(color){
+        var alist = document.querySelectorAll('a');
+        var i = 0;
+        while(i<alist.length){
+          alist[i].style.color = color;
+          i = i +1;
+        }
+      }
+      function setColor(color){
+            document.querySelector('body').style.color = color;
+      }
+      function  setBackgroundColor(color){
+          document.querySelector('body').style.backgroundColor = color;
+      }
       function nightDayHandler(self){
         var target = document.querySelector('body');
         if(self.value==='night'){
-          target.style.backgroundColor = 'black';
-          target.style.color = 'white';
+          setBackgroundColor('black');
+          setColor('white');
           self.value = 'day';
 
-          var alist = document.querySelectorAll('a');
-          var i = 0;
-          while(i<alist.length){
-            alist[i].style.color = 'powderblue';
-            i = i +1;
-          }
+          linksetColor('powderblue');
         }else{
-          target.style.backgroundColor = 'white';
-          target.style.color = 'black';
+          setBackgroundColor('white');
+          setColor('black');
           self.value = 'night';
 
-          var alist = document.querySelectorAll('a');
-          var i = 0;
-          while(i<alist.length){
-            alist[i].style.color = 'blue';
-            i = i +1;
-        }
+          linksetColor('blue');
       }
     }
     </script>
   </head>
   <body style="background-color:black; color:white;">
     <h1><a href="ex1.html">Web</a></<h1>
+    <input id="night_day" type="button" value="night" onclick="nightDayHandler(this);">
     <input id="night_day" type="button" value="night" onclick="nightDayHandler(this);">
     <ol>
       <li><a href="1.html">HTML</a></li>
@@ -45,6 +50,5 @@
     <p>
       자바 스크립트란~
     </p>
-    <input id="night_day" type="button" value="night" onclick="nightDayHandler(this);">
   </body>
 </html>
